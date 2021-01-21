@@ -1,0 +1,23 @@
+{
+    "fileHeaderComment.parameter": {
+        "*": {
+            "commentbegin": "/**",
+            "author": "Segev {CJ} Shmueli <cj@segevs.com>",
+            "company": "ProductiveHub",
+            "simpledate": "${month}/${day}/${year}"
+        }
+    },
+    "fileHeaderComment.template": {
+        "ts": [
+            "${commentbegin}",
+            "${commentprefix} Copyright (c) ${company}. All Rights Reserved.",
+            "${commentprefix}",
+            "${commentprefix}",
+            "${commentprefix} @summary",
+            "${commentprefix} @author ${author}",
+            "${commentprefix}",
+            "${commentprefix} Created: ${simpledate}",
+            "${commentend}"
+        ]
+    }
+}

@@ -1,0 +1,29 @@
+<div class="page-wrapper">
+  <aside>
+    <div>Logo</div>
+
+    <hr>
+    <nav>
+      <a routerLinkActive="active" routerLink="/" [routerLinkActiveOptions]="{exact:
+          true}">files</a>
+
+      <ng-container *ngIf="isAdmin">
+        <a routerLinkActive="active" routerLink="/groups">Groups</a>
+        <a routerLinkActive="active" routerLink="/users">Users</a>
+      </ng-container>
+      <a [routerLink]="" (click)="logout()">Logout</a>
+    </nav>
+  </aside>
+  <header>
+    <div *ngIf="page$ | async as page">
+      <h1>{{ page.title }}</h1>
+      <!-- <ng-container *ngFor="let part of path.pathParts">
+        <span>/</span>
+        <a [routerLink]="['/']"  [queryParams]="{path: part.path}">{{ part.name }}</a>
+      </ng-container> -->
+    </div>
+  </header>
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+</div>

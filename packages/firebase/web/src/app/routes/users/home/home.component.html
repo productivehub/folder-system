@@ -1,0 +1,23 @@
+<div *ngIf="users$ | async as users">
+
+  <ng-container *ngIf="users.length > 0; else noUsers">
+    <div class="user-line" *ngFor="let user of users">
+
+      <div class="image"><img *ngIf="user.photoURL" [src]="user.photoURL"></div>
+      <div class="name">{{ user.displayName || user.email }}</div>
+      <div>
+        <div *ngFor="let group of groups">
+          <mat-checkbox >{{ group.name }}</mat-checkbox>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <ng-template #noUsers>
+    <div>there are no users (other than yourself) yet</div>
+  </ng-template>
+
+
+</div>
+<ng-template>
+  Loading...
+</ng-template>

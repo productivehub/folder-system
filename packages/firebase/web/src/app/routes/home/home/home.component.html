@@ -1,0 +1,24 @@
+<ng-container *ngIf="path$ | async as path; else loading">
+  <div class="path-name">
+    <ng-container *ngFor="let item of path.pathParts">
+      <span>/</span>
+      <a [routerLink]="['/']" [queryParams]="{path: item.path}">{{ item.name }}</a>
+    </ng-container>
+  </div>
+  <div>
+    <app-folders-new-folder></app-folders-new-folder>
+    <app-uploader [folder]="path"></app-uploader>
+  </div>
+  <div class="folder-content">
+    <div>
+      <div *ngIf="pathObjects$ | async as pathObjects">
+        <app-list-item-folder [folder]="folder" *ngFor="let folder of pathObjects.folders"></app-list-item-folder>
+        <app-list-item-file [file]="file" *ngFor="let file of pathObjects.files"></app-list-item-file>
+      </div>
+    </div>
+    <app-groups-list [folder]="folder"></app-groups-list>
+  </div>
+</ng-container>
+<ng-template #loading>
+  loading...
+</ng-template>

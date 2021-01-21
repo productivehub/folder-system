@@ -1,0 +1,2 @@
+  {{ (uploadPercent | async) || 0 }}%
+  <input type="file" name="uploader"  (change)="uploadFiles($event)">

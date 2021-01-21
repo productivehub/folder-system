@@ -1,0 +1,25 @@
+<form [formGroup]="folderForm" (submit)="submit($event)">
+  <div class="form-fields">
+    <ng-container *ngIf="showForm; else showButton">
+      <div>
+        <mat-form-field>
+          <input matInput formControlName="name" placeholder="Folder name">
+        </mat-form-field>
+      </div>
+      <div>
+        <button mat-button>
+          Submit
+        </button>
+      </div>
+    </ng-container>
+    <ng-template #showButton>
+      <div>
+        <button type="button" mat-button (click)="showForm = !showForm">
+          <mat-icon>add</mat-icon>
+          Add folder
+        </button>
+      </div>
+    </ng-template>
+
+  </div>
+</form>

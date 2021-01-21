@@ -1,0 +1,21 @@
+<ng-container *ngIf="list$ | async as list; else loading">
+  <div *ngIf="list.length === 0">
+    No groups yet.
+  </div>
+  <div *ngFor="let item of list">
+    {{ item.name  }}
+    <button mat-button (click)="delete(item)">delete</button>
+  </div>
+
+  <form [formGroup]="newGroupForm" (submit)="submit($event)">
+    <mat-form-field>
+      <input matInput placeholder="Group name" formControlName="name">
+    </mat-form-field>
+    <div>
+      <button mat-button>Submit</button>
+    </div>
+  </form>
+</ng-container>
+<ng-template #loading>
+  loading...
+</ng-template>

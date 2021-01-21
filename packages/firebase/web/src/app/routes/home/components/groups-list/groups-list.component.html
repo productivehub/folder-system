@@ -1,0 +1,8 @@
+<div class="groups" *ngIf="groups$ | async as groups">
+  <h3>groups</h3>
+  what groups are permitted to view files in this folder?
+  <div class="group-item" *ngFor="let item of groups">
+    <mat-checkbox [checked]="item.selected" (change)="toggleGroup(item, $event)"></mat-checkbox>
+    {{ item.name }}
+  </div>
+</div>
